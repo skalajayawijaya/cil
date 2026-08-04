@@ -46,3 +46,56 @@ pinInput.addEventListener("keypress", function(e){
     }
 
 });
+// ===================================
+// ENVELOPE & LETTER
+// =================================
+
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letter");
+const typing = document.getElementById("typing");
+
+const letterText = `Hai Cil 🌻
+
+Terima kasih sudah membuka surat ini.
+
+Website kecil ini sengaja kubuat khusus untukmu.
+
+Semoga setiap bunga matahari yang kamu lihat selalu mengingatkan bahwa akan selalu ada seseorang yang mendoakan kebahagiaanmu.
+
+❤️`;
+
+if (envelope) {
+    envelope.addEventListener("click", () => {
+        envelope.classList.add("open-envelope");
+
+        setTimeout(() => {
+            envelope.style.display = "none";
+
+            letter.classList.remove("hidden");
+            letter.classList.add("show");
+
+            typeLetter();
+        }, 800);
+    });
+}
+function typeLetter(){
+
+    typing.textContent = "";
+
+    let i = 0;
+
+    const timer = setInterval(() => {
+
+        typing.textContent += letterText.charAt(i);
+
+        i++;
+
+        if(i >= letterText.length){
+
+            clearInterval(timer);
+
+        }
+
+    },35);
+
+}
