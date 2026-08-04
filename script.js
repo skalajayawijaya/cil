@@ -220,7 +220,7 @@ if (sendReply) {
     }
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec"; {
+      await fetch("https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
