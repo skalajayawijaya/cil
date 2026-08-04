@@ -122,9 +122,11 @@ const downloadReply = document.getElementById("downloadReply");
 const copyReply = document.getElementById("copyReply");
 const result = document.getElementById("result");
 
-// KIRIM BALASAN
+// KIRIM BALASAN KE GOOGLE SHEETS
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec";
+
 if (sendReply) {
-    sendReply.addEventListener("click", () => {
+    sendReply.addEventListener("click", async () => {
         const text = replyText.value.trim();
 
         if (text === "") {
@@ -132,7 +134,25 @@ if (sendReply) {
             return;
         }
 
-        result.textContent = "Balasanmu sudah terkirim ❤️";
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
+                body: JSON.stringify({
+                    message: text
+                })
+            });
+
+            result.textContent = "Balasan berhasil dikirim ❤️";
+            replyText.value = "";
+
+        } catch (error) {
+            alert("Balasan gagal dikirim.");
+            console.error(error);
+        }
     });
 }
 
