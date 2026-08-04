@@ -209,20 +209,34 @@ if (copyReply) {
     });
 }
 if (sendReply) {
-    sendReply.addEventListener("click", () => {
-        const text = replyText.value.trim();
+  sendReply.addEventListener("click", async (event) => {
+    event.preventDefault();
 
-        if (text === "") {
-            alert("Tulis balasanmu terlebih dahulu ❤️");
-            return;
-        }
+    const text = replyText.value.trim();
 
-        const nomor = "6285158859417"
-        const pesan = encodeURIComponent(text);
+    if (text === "") {
+      alert("Tulis balasanmu terlebih dahulu ❤️");
+      return;
+    }
 
-        window.open(
-            `https://wa.me/${nomor}?text=${pesan}`,
-            "_blank"
-        );
-    });
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec"; {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({
+          message: text
+        })
+      });
+
+      alert("Balasan berhasil dikirim ke Google Sheets ❤️");
+      replyText.value = "";
+
+    } catch (error) {
+      alert("Balasan gagal dikirim.");
+      console.error(error);
+    }
+  });
 }
