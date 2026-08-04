@@ -121,33 +121,38 @@ const result = document.getElementById("result");
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec";
 
 if (sendReply) {
-    sendReply.addEventListener("click", async () => {
-        const text = replyText.value.trim();
+  sendReply.addEventListener("click", async () => {
 
-        if (text === "") {
-            alert("Tulis balasanmu terlebih dahulu ❤️");
-            return;
-        }
+    const text = replyText.value.trim();
 
-        try {
-            await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec", {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "text/plain"
-                },
-                body: JSON.stringify({
-                    message: text
-                })
-            });
+    if (text === "") {
+      alert("Tulis balasanmu terlebih dahulu ❤️");
+      return;
+    }
 
-            result.textContent = "Balasan berhasil dikirim ❤️";
-            replyText.value = "";
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({
+          message: text
+        })
+      });
 
-        } catch (error) {
-            alert("Balasan gagal dikirim.");
-            console.error(error);
-        }
+      alert("Balasan berhasil dikirim ❤️");
+      result.textContent = "Balasan berhasil dikirim ❤️";
+      replyText.value = "";
+
+    } catch (error) {
+      alert("Balasan gagal dikirim.");
+      console.error(error);
+    }
+
+  });
+}
     });
 }
 
