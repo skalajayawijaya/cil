@@ -197,7 +197,7 @@ if (sendReply) {
             return;
         }
 
-        const nomor = "6295158859417"
+        const nomor = "6285158859417"
         const pesan = encodeURIComponent(text);
 
         window.open(
