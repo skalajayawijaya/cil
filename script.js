@@ -99,3 +99,16 @@ function typeLetter(){
     },35);
 
 }
+// BALAS SURAT
+const replyBtn = document.getElementById("replyBtn");
+const replySection = document.getElementById("reply");
+
+if (replyBtn && replySection) {
+    replyBtn.addEventListener("click", () => {
+        replySection.hidden = false;
+
+        replySection.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+}
