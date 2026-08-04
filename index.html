@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Surat Cinta Rahasia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loading"><h1>🌻 Surat Cinta Rahasia</h1></div>
+<section id="login" class="screen">
+<div class="glass">
+<h2>Masukkan PIN</h2>
+<input id="pin" maxlength="6" placeholder="******">
+<button id="openBtn">Buka Surat</button>
+<p id="msg"></p>
+</div>
+</section>
+<section id="main" class="screen" style="display:none">
+<header>
+<h1>🌻 Surat Cinta Rahasia</h1>
+<div class="controls">
+<button id="musicBtn">🎵</button>
+<button id="themeBtn">🌓</button>
+<button id="fullBtn">⛶</button>
+</div>
+</header>
+<div class="envelope" id="envelope">
+<img src="assets/envelope.png" alt="Amplop">
+</div>
+<article id="letter" class="glass" hidden>
+<h2>Untukmu</h2>
+<p id="typing">Terima kasih telah hadir. Semoga halaman kecil ini selalu mengingatkan bahwa setiap senyummu adalah cahaya yang menghangatkan hariku. 🌻</p>
+<button id="replyBtn">❤️ Balas Surat</button>
+</article>
+<section id="reply" hidden>
+<div class="glass">
+<h2>Balasan Surat</h2>
+<textarea id="replyText" placeholder="Tuliskan balasanmu di sini..."></textarea>
+<div>
+<button id="sendReply">Kirim Balasan</button>
+<button id="saveReply">Simpan Balasan</button>
+<button id="downloadReply">Download TXT</button>
+<button id="copyReply">Copy</button>
+</div>
+<div id="result"></div>
+</div>
+</section>
+</section>
+<audio id="music" loop>
+<source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+<script src="script.js"></script>
+</body>
+</html>
