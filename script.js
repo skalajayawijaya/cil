@@ -1,6 +1,7 @@
-// ===============================
+// ==============================
 // LOGIN PIN
-// ===============================
+// ==============================
+
 const CORRECT_PIN = "060904";
 
 const loginPage = document.getElementById("login");
@@ -9,32 +10,29 @@ const pinInput = document.getElementById("pin");
 const openBtn = document.getElementById("openBtn");
 const message = document.getElementById("msg");
 
-openBtn.addEventListener("click", () => {
-    const pin = pinInput.value.trim();
+openBtn.addEventListener("click", function () {
+  const pin = pinInput.value.trim();
 
-    if (pin === CORRECT_PIN) {
+  if (pin === CORRECT_PIN) {
+    message.textContent = "";
 
-        message.textContent = "";
-        loginPage.classList.add("fade-out");
+    loginPage.classList.add("fade-out");
 
-        setTimeout(() => {
-            loginPage.style.display = "none";
-            mainPage.style.display = "block";
+    setTimeout(function () {
+      loginPage.style.display = "none";
+      mainPage.style.display = "block";
+      mainPage.classList.add("fade-in");
+    }, 800);
 
-            mainPage.classList.add("fade-in");
+  } else {
+    message.textContent = "PIN Salah ❤️";
 
-        }, 800);
+    pinInput.classList.add("shake");
 
-    } else {
-
-        message.textContent = "PIN Salah 💔";
-
-        pinInput.classList.remove("shake");
-
-        void pinInput.offsetWidth;
-
-        pinInput.classList.add("shake");
-    }
+    setTimeout(function () {
+      pinInput.classList.remove("shake");
+    }, 500);
+  }
 });
 
 pinInput.addEventListener("keypress", function(e){
