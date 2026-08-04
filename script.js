@@ -112,3 +112,79 @@ if (replyBtn && replySection) {
         });
     });
 }
+
+// FITUR TOMBOL BALASAN
+
+const replyText = document.getElementById("replyText");
+const sendReply = document.getElementById("sendReply");
+const saveReply = document.getElementById("saveReply");
+const downloadReply = document.getElementById("downloadReply");
+const copyReply = document.getElementById("copyReply");
+const result = document.getElementById("result");
+
+// KIRIM BALASAN
+if (sendReply) {
+    sendReply.addEventListener("click", () => {
+        const text = replyText.value.trim();
+
+        if (text === "") {
+            alert("Tulis balasanmu terlebih dahulu ❤️");
+            return;
+        }
+
+        result.textContent = "Balasanmu sudah terkirim ❤️";
+    });
+}
+
+// SIMPAN BALASAN
+if (saveReply) {
+    saveReply.addEventListener("click", () => {
+        const text = replyText.value.trim();
+
+        if (text === "") {
+            alert("Belum ada balasan untuk disimpan.");
+            return;
+        }
+
+        localStorage.setItem("balasanSurat", text);
+        alert("Balasan berhasil disimpan ❤️");
+    });
+}
+
+// DOWNLOAD TXT
+if (downloadReply) {
+    downloadReply.addEventListener("click", () => {
+        const text = replyText.value.trim();
+
+        if (text === "") {
+            alert("Tulis balasan terlebih dahulu.");
+            return;
+        }
+
+        const file = new Blob([text], {
+            type: "text/plain"
+        });
+
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(file);
+        link.download = "balasan-surat.txt";
+        link.click();
+
+        URL.revokeObjectURL(link.href);
+    });
+}
+
+// COPY
+if (copyReply) {
+    copyReply.addEventListener("click", async () => {
+        const text = replyText.value.trim();
+
+        if (text === "") {
+            alert("Tidak ada teks untuk dicopy.");
+            return;
+        }
+
+        await navigator.clipboard.writeText(text);
+        alert("Balasan berhasil dicopy ❤️");
+    });
+}
