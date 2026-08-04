@@ -188,3 +188,21 @@ if (copyReply) {
         alert("Balasan berhasil dicopy ❤️");
     });
 }
+if (sendReply) {
+    sendReply.addEventListener("click", () => {
+        const text = replyText.value.trim();
+
+        if (text === "") {
+            alert("Tulis balasanmu terlebih dahulu ❤️");
+            return;
+        }
+
+        const nomor = "6295158859417"
+        const pesan = encodeURIComponent(text);
+
+        window.open(
+            `https://wa.me/${nomor}?text=${pesan}`,
+            "_blank"
+        );
+    });
+}
