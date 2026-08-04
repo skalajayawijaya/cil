@@ -70,3 +70,18 @@ header{padding:1rem}
         transform:translateY(0);
     }
 }
+.envelope {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.envelope img {
+    width: 250px;
+    height: auto;
+    display: block;
+}
