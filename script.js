@@ -1,7 +1,7 @@
 // ===============================
 // LOGIN PIN
 // ===============================
-const CORRECT_PIN = "123456";
+const CORRECT_PIN = "060904";
 
 const loginPage = document.getElementById("login");
 const mainPage = document.getElementById("main");
