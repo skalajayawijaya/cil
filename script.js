@@ -203,34 +203,3 @@ if (copyReply) {
         alert("Balasan berhasil dicopy ❤️");
     });
 }
-if (sendReply) {
-  sendReply.addEventListener("click", async (event) => {
-    event.preventDefault();
-
-    const text = replyText.value.trim();
-
-    if (text === "") {
-      alert("Tulis balasanmu terlebih dahulu ❤️");
-      return;
-    }
-
-    try {
-await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "text/plain"
-    },
-    body: JSON.stringify({
-      message: text
-    })
-  });
-
-  alert("Balasan berhasil dikirim ke Google Sheets ❤️");
-  replyText.value = "";
-
-} catch (error) {
-  alert("Balasan gagal dikirim.");
-  console.error(error);
-}
-});
