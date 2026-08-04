@@ -215,23 +215,21 @@ if (sendReply) {
     }
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec";, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain"
-        },
-        body: JSON.stringify({
-          message: text
-        })
-      });
-
-      alert("Balasan berhasil dikirim ke Google Sheets ❤️");
-      replyText.value = "";
-
-    } catch (error) {
-      alert("Balasan gagal dikirim.");
-      console.error(error);
-    }
+  await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain"
+    },
+    body: JSON.stringify({
+      message: text
+    })
   });
+
+  alert("Balasan berhasil dikirim ke Google Sheets ❤️");
+  replyText.value = "";
+
+} catch (error) {
+  alert("Balasan gagal dikirim.");
+  console.error(error);
 }
