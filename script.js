@@ -233,3 +233,4 @@ await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPo
   alert("Balasan gagal dikirim.");
   console.error(error);
 }
+});
