@@ -123,7 +123,7 @@ const copyReply = document.getElementById("copyReply");
 const result = document.getElementById("result");
 
 // KIRIM BALASAN KE GOOGLE SHEETS
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec";
 
 if (sendReply) {
     sendReply.addEventListener("click", async () => {
@@ -135,7 +135,7 @@ if (sendReply) {
         }
 
         try {
-            await fetch("https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec", {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
@@ -220,7 +220,7 @@ if (sendReply) {
     }
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbz9P_6fKSFAGEQWPHW4mont7_Q81LSwm7RQdLSq2uWZTYulK4Ct9Oo_yErC-7v5V0WuKQ/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbwNdPO0yeFGi2Wa8j5IYc_nmxPopiT7TX-VGxmt8g-rzhj0ToAHn-qCj_C0ZCUh7DYa5g/exec";, {
         method: "POST",
         mode: "no-cors",
         headers: {
