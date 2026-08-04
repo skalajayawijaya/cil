@@ -14,17 +14,14 @@ openBtn.addEventListener("click", function () {
   const pin = pinInput.value.trim();
 
   if (pin === CORRECT_PIN) {
+    // PIN BENAR
     message.textContent = "";
 
-    loginPage.classList.add("fade-out");
-
-    setTimeout(function () {
-      loginPage.style.display = "none";
-      mainPage.style.display = "block";
-      mainPage.classList.add("fade-in");
-    }, 800);
+    loginPage.style.display = "none";
+    mainPage.style.display = "block";
 
   } else {
+    // PIN SALAH
     message.textContent = "PIN Salah ❤️";
 
     pinInput.classList.add("shake");
