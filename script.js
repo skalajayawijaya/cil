@@ -153,8 +153,6 @@ if (sendReply) {
 
   });
 }
-    });
-}
 
 // SIMPAN BALASAN
 if (saveReply) {
