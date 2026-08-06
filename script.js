@@ -135,7 +135,7 @@ if (sendReply) {
         method: "POST",
         mode: "no-cors",
         headers: {
-          "Content-Type": "text/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           message: text
